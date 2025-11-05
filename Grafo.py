@@ -32,7 +32,7 @@ class Grafo:
         """Devuelve las rutas desde una sede dada."""
         return self.grafo.get(sede, [])
     
-    def obtener_aristas(self):
+    def obtener_todas_las_aristas(self):
         aristas = []
         visitados = set()
 
@@ -54,14 +54,3 @@ class Grafo:
             for destino, distancia, costo in self.grafo[sede]:
                 print(f"   → {destino}: {distancia} km (${costo:,} COP)")
         
-
-grafo_prueba = Grafo()
-
-grafo_prueba.agregar_ruta("sede1", "sede2", 10)
-grafo_prueba.agregar_ruta("sede1", "sede3", 20)
-grafo_prueba.agregar_ruta("sede2", "sede3", 15)
-print(grafo_prueba.obtener_rutas("sede1"))
-print("-"*20)
-grafo_prueba.mostrar_grafo()
-print("-"*20)
-print(grafo_prueba.obtener_aristas())
