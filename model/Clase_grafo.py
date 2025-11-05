@@ -31,7 +31,28 @@ class Grafo:
     def obtener_rutas(self, sede):
         """Devuelve las rutas desde una sede dada."""
         return self.grafo.get(sede, [])
+    
+    def obtener_aristas(self):
+        aristas = []
+        visitados = set()
 
+        for sede1 in self.grafo:
+            for sede2, distancia, costo in self.grafo[sede1]:
+                if (sede2, sede1) not in visitados:
+                    aristas.append((sede1, sede2, distancia, costo))
+                    visitados.add((sede1, sede2))
+        
+        return aristas
+    
+    def mostrar_grafo(self):
+        """Muestra el grafo de forma legible"""
+        print("\n" + "="*60)
+        print("MAPA DE SEDES Y RUTAS")
+        print("="*60)
+        for sede in self.grafo:
+            print(f"\n📍 {sede}:")
+            for destino, distancia, costo in self.grafo[sede]:
+                print(f"   → {destino}: {distancia} km (${costo:,} COP)")
         
 
 grafo_prueba = Grafo()
@@ -41,7 +62,6 @@ grafo_prueba.agregar_ruta("sede1", "sede3", 20)
 grafo_prueba.agregar_ruta("sede2", "sede3", 15)
 print(grafo_prueba.obtener_rutas("sede1"))
 print("-"*20)
-print(grafo_prueba.grafo)
-
-
-    
+grafo_prueba.mostrar_grafo()
+print("-"*20)
+print(grafo_prueba.obtener_aristas())
