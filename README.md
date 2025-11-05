@@ -8,7 +8,7 @@ Este proyecto simula un sistema de entrega de materia prima para una empresa de 
 
 ## Estructura del Proyecto
 ```
-delivery-optimization/
+PRACTICA_GRAFOS/
 │
 ├── main.py              # Programa principal
 ├── grafo.py            # Clase del grafo y operaciones
