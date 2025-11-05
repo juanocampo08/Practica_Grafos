@@ -30,6 +30,7 @@ class UnionFind:
                 self.rango[raiz1] += 1
             return True
         return False
+    
 def kruskal_mst(grafo):
     """
     Algoritmo de Kruskal para encontrar el Árbol de Expansión Mínimo
@@ -78,7 +79,6 @@ def kruskal_mst(grafo):
     print(f"🛣️  Número de rutas utilizadas: {len(mst)}")
     
     return mst, costo_total
-
 
 def backtracking_rutas(grafo, inicio):
     """
